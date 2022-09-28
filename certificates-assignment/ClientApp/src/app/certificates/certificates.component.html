@@ -1,0 +1,32 @@
+<h1>Certificates</h1>
+
+<p *ngIf="!certificates"><em>Loading...</em></p>
+
+<button type="button" class="btn btn-primary" routerLink="new-certificate">
+  New Certificate
+</button>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="certificates">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Creation date</th>
+      <th>Valid from</th>
+      <th>Valid to</th>
+      <th>Customer name</th>
+      <th>Insured sum</th>
+      <th>Certificate sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let certificate of certificates">
+      <td>{{ certificate.number }}</td>
+      <td>{{ certificate.creationDate | date:'short' }}</td>
+      <td>{{ certificate.validFrom | date:'short' }}</td>
+      <td>{{ certificate.validTo | date:'short' }}</td>
+      <td>{{ certificate.customerName }}</td>
+      <td>{{ certificate.insuredSum }}</td>
+      <td>{{ certificate.certificateSum }}</td>
+    </tr>
+  </tbody>
+</table>
