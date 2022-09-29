@@ -31,6 +31,12 @@ namespace Services.Services
                 resultExt.Message = "Insured item name is required";
                 return resultExt;
             }
+            int decimalCount = BitConverter.GetBytes(decimal.GetBits(model.InsuredSum)[3])[2];
+            if (decimalCount > 2)
+            {
+                resultExt.Message = "Please enter valid insured sum format: (X.XX)";
+                return resultExt;
+            }
             resultExt.Value = model;
             return resultExt;
 

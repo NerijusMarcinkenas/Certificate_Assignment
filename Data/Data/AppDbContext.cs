@@ -17,4 +17,10 @@ public class AppDbContext : DbContext
     {
         builder.Entity<Certificate>().HasIndex(n => n.Number).IsUnique(true);
     }
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.Properties<decimal>()
+            .HavePrecision(18, 2);
+    }
 }
