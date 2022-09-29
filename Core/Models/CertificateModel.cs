@@ -27,6 +27,7 @@ public class CertificateModel
         CreationDate = DateTime.Now;
         ValidFrom = DateTime.Now;
         ValidTo = CreationDate.AddYears(1).Date;
+        
     }
     public CertificateModel(Certificate certificate)
     {
